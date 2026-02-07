@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCarByVin } from '../data/carData';
+import { generateVehicleReport } from '../utils/generatePDF';
 import { 
   ShieldCheck, 
   AlertTriangle, 
@@ -64,11 +65,10 @@ export function Report() {
               <span className="font-medium">Retour à la Recherche</span>
             </button>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors">
-                <Share2 className="w-4 h-4" />
-                <span className="hidden sm:inline">Partager</span>
-              </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button 
+                onClick={() => generateVehicleReport(car)}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
                 <Download className="w-4 h-4" />
                 <span className="hidden sm:inline">Télécharger PDF</span>
               </button>
@@ -227,7 +227,7 @@ export function Report() {
                         </span>
                         <span className="flex items-center gap-1">
                           <Gauge className="w-3 h-3 sm:w-4 sm:h-4" />
-                          {item.mileage.toLocaleString()} mi
+                          {item.mileage.toLocaleString()} km
                         </span>
                         <span className="flex items-center gap-1 hidden sm:flex">
                           <MapPin className="w-4 h-4" />
@@ -263,7 +263,7 @@ export function Report() {
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                         <div>
                           <p className="text-slate-500">Coût Réparation</p>
-                          <p className="font-semibold">${accident.repairCost.toLocaleString()}</p>
+                          <p className="font-semibold">{accident.repairCost.toLocaleString()} DT</p>
                         </div>
                         <div>
                           <p className="text-slate-500">Airbags</p>
@@ -296,7 +296,7 @@ export function Report() {
                   <div key={index} className="bg-slate-50 rounded-lg p-3">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <p className="font-semibold text-slate-900">{reading.mileage.toLocaleString()} mi</p>
+                        <p className="font-semibold text-slate-900">{reading.mileage.toLocaleString()} km</p>
                         <p className="text-xs text-slate-500">{reading.source}</p>
                       </div>
                       <span className="inline-flex items-center gap-1 text-green-600 text-xs">
@@ -322,7 +322,7 @@ export function Report() {
                     {car.odometerReadings.map((reading, index) => (
                       <tr key={index} className="border-b border-slate-100 hover:bg-slate-50">
                         <td className="py-3 px-4 text-sm">{new Date(reading.date).toLocaleDateString()}</td>
-                        <td className="py-3 px-4 text-sm font-semibold">{reading.mileage.toLocaleString()} mi</td>
+                        <td className="py-3 px-4 text-sm font-semibold">{reading.mileage.toLocaleString()} km</td>
                         <td className="py-3 px-4 text-sm text-slate-600">{reading.source}</td>
                         <td className="py-3 px-4">
                           <span className="inline-flex items-center gap-1 text-green-600 text-sm">
@@ -346,7 +346,7 @@ export function Report() {
                 Valeur Marché
               </h2>
               <div className="text-center mb-4 sm:mb-6">
-                <p className="text-3xl sm:text-4xl font-bold text-blue-600">${car.marketValue.average.toLocaleString()}</p>
+                <p className="text-3xl sm:text-4xl font-bold text-blue-600">{car.marketValue.average.toLocaleString()} DT</p>
                 <p className="text-xs sm:text-sm text-slate-500">Valeur Estimée</p>
               </div>
               <div className="bg-slate-100 rounded-lg sm:rounded-xl p-3 sm:p-4">
@@ -371,8 +371,8 @@ export function Report() {
                   />
                 </div>
                 <div className="flex justify-between text-xs sm:text-sm mt-2 font-semibold">
-                  <span>${car.marketValue.low.toLocaleString()}</span>
-                  <span>${car.marketValue.high.toLocaleString()}</span>
+                  <span>{car.marketValue.low.toLocaleString()} DT</span>
+                  <span>{car.marketValue.high.toLocaleString()} DT</span>
                 </div>
               </div>
             </div>

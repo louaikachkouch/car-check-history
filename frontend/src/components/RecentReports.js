@@ -11,7 +11,7 @@ const reports = [
     issues: 0,
     owners: 2,
     mileage: "45,230",
-    price: "$45,000"
+    price: "145,000 DT"
   },
   {
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=60",
@@ -22,7 +22,7 @@ const reports = [
     issueText: "Accident Mineur",
     owners: 1,
     mileage: "12,500",
-    price: "$112,000"
+    price: "360,000 DT"
   },
   {
     image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&auto=format&fit=crop&q=60",
@@ -32,7 +32,7 @@ const reports = [
     issues: 0,
     owners: 1,
     mileage: "8,200",
-    price: "$38,900"
+    price: "125,000 DT"
   }
 ];
 

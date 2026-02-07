@@ -5,6 +5,11 @@ import { Features } from './components/Features';
 import { RecentReports } from './components/RecentReports';
 import { Footer } from './components/Footer';
 import { Report } from './pages/Report';
+import { Login } from './pages/Login';
+import { Register } from './pages/Register';
+import { SampleReport } from './pages/SampleReport';
+import { Pricing } from './pages/Pricing';
+import { Enterprise } from './pages/Enterprise';
 
 function HomePage() {
   return (
@@ -27,6 +32,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/report/:vin" element={<Report />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/sample-report" element={<SampleReport />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/enterprise" element={<Enterprise />} />
         </Routes>
       </div>
     </BrowserRouter>

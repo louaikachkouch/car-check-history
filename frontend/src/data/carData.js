@@ -170,7 +170,7 @@ export const carDatabase = {
       seats: 5,
       horsepower: 346,
       torque: "389 lb-ft",
-      range: "333 miles",
+      range: "536 km",
       batteryCapacity: "82 kWh",
       acceleration: "4.2s 0-60 mph",
       length: "184.8 in",

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ShieldCheck, Menu, X } from 'lucide-react';
 
 export function Navbar() {
@@ -13,31 +14,31 @@ export function Navbar() {
             <ShieldCheck className="w-5 h-5" />
           </div>
           <span className="font-bold text-xl tracking-tight text-slate-900">
-            Hydrolic<span className="text-blue-600">Cars</span>
+            True<span className="text-blue-600">Car</span>
           </span>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="/sample-report" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+          <Link to="/sample-report" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
             Exemple de Rapport
-          </a>
-          <a href="/pricing" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+          </Link>
+          <Link to="/pricing" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
             Tarifs
-          </a>
-          <a href="/enterprise" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
+          </Link>
+          <Link to="/enterprise" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
             Entreprise
-          </a>
+          </Link>
         </div>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <button className="px-4 py-2 text-slate-600 hover:text-blue-600 font-medium transition-colors">
+          <Link to="/login" className="px-4 py-2 text-slate-600 hover:text-blue-600 font-medium transition-colors">
             Connexion
-          </button>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20 font-semibold px-6 py-2 rounded-full transition-colors">
-            Vérifier un Véhicule
-          </button>
+          </Link>
+          <Link to="/register" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20 font-semibold px-6 py-2 rounded-full transition-colors">
+            S'inscrire
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -53,16 +54,16 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200 px-4 py-6">
           <div className="flex flex-col gap-4">
-            <a href="/sample-report" className="text-lg font-medium py-2">Exemple de Rapport</a>
-            <a href="/pricing" className="text-lg font-medium py-2">Tarifs</a>
-            <a href="/enterprise" className="text-lg font-medium py-2">Entreprise</a>
+            <Link to="/sample-report" className="text-lg font-medium py-2">Exemple de Rapport</Link>
+            <Link to="/pricing" className="text-lg font-medium py-2">Tarifs</Link>
+            <Link to="/enterprise" className="text-lg font-medium py-2">Entreprise</Link>
             <hr className="border-slate-100" />
-            <button className="w-full py-3 border border-slate-200 rounded-lg font-medium">
+            <Link to="/login" className="w-full py-3 border border-slate-200 rounded-lg font-medium text-center block">
               Connexion
-            </button>
-            <button className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
-              Vérifier un Véhicule
-            </button>
+            </Link>
+            <Link to="/register" className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-center block">
+              S'inscrire
+            </Link>
           </div>
         </div>
       )}

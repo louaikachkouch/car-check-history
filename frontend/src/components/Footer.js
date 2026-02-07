@@ -12,7 +12,7 @@ export function Footer() {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <span className="font-bold text-xl text-white">
-                Hydrolic<span className="text-blue-500">Cras</span>
+                True<span className="text-blue-500">Car</span>
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -68,7 +68,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500">
-            © 2026 AutoCheckPro. Tous droits réservés.
+            © 2026 Truecar. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6 text-sm text-slate-500">
             <span>🇫🇷 France</span>
